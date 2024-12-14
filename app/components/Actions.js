@@ -24,7 +24,7 @@ export const Actions = () => {
             plantSeed();
       };
       return (
-            <div className="actions flex gap-4 p-6 py-0 items-center text-sm">
+            <div className="actions flex mb-6 gap-4 p-6 py-0 items-center text-sm">
                   <button
                         className="p-2 px-4 border rounded-xl hover:bg-foreground hover:text-background"
                         onClick={doWaterGarden}

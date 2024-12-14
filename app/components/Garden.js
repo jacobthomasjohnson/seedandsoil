@@ -17,7 +17,7 @@ export const Garden = () => {
 
       return (
             <div
-                  className="p-6 h-[600px] border m-6 mt-0 rounded-2xl relative transition-all duration-[25s] overflow-hidden"
+                  className="p-6 grow border m-6 mt-0 rounded-2xl relative transition-all duration-[25s] overflow-hidden"
                   style={{
                         borderColor: timeOfDayColor, // Fixed inline style
                   }}

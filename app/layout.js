@@ -13,10 +13,12 @@ export default function RootLayout({ children }) {
       return (
             <html lang="en">
                   <body>
+                        <div className="flex flex-col h-full">
                         <Header />
                         <Time />
                         <Garden />
                         <Actions />
+                        </div>
                         {children}
                   </body>
             </html>
