@@ -94,7 +94,7 @@ export const useGameStore = create((set, get) => ({
                   const originalPlant = get().plants.find(
                         (p) => p.plantId === plant.plantId
                   );
-                  const plantGrowthSpeed = originalPlant.plantGrowthSpeed;
+                  const plantGrowthSpeed = originalPlant.plantGrowthSpeed + 10;
                   get().growPlantInGarden(plant.uniqueId, plantGrowthSpeed);
             });
       },
