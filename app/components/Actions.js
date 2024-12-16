@@ -9,10 +9,14 @@ export const Actions = () => {
       const plantSeed = useGameStore((state) => state.plantSeed);
       const soil = useGameStore((state) => state.soil);
       const changeSoil = useGameStore((state) => state.changeSoil);
+      const dayWaterAmount = useGameStore((state) => state.dayWaterAmount);
+      const increaseDayWaterAmount = useGameStore((state) => state.increaseDayWaterAmount);
+
       const doWaterGarden = () => {
             if (water < 1) {
                   return;
             }
+            increaseDayWaterAmount(1);
             changeWater("-1");
             growPlants();
       };

@@ -7,6 +7,24 @@ export const useGameStore = create((set, get) => ({
       randomIntBetween,
       plants,
 
+      dayWaterAmount: 0, // Will reset each night (Starts at 6:00AM and ends at 10:00PM)
+      increaseDayWaterAmount: (amount) => {
+            set((state) => {
+                  return {
+                        ...state,
+                        dayWaterAmount: state.dayWaterAmount + amount,
+                  }
+            })
+      },
+      resetDayWaterAmount: () => {
+            set((state) => {
+                  return {
+                        ...state,
+                        dayWaterAmount: 0,
+                  }
+            })
+      },
+
       usedIds: [],
       generateId: () => {
             let id;
@@ -119,10 +137,28 @@ export const useGameStore = create((set, get) => ({
             });
       },
 
+      notifications: [],
+
+      notify: (message) => {
+            set((state) => {
+                  return {
+                        ...state,
+                        notifications: [
+                              message,
+                              ...state.notifications,
+                        ]
+                  }
+            })
+      },
+
       // Time
 
       currentTime: 0,
       timeTick: () => {
+            if (get().currentTime === 2100) {
+                  get().resetDayWaterAmount();
+                  get().notify(`Daily water used has reset to 0 (time is 9:00PM)`);
+            }
             if (get().currentTime > 2400) {
                   set((state) => {
                         return {
@@ -143,7 +179,7 @@ export const useGameStore = create((set, get) => ({
             const passTime = setInterval(() => {
                   // Pass one minute
                   get().timeTick();
-            }, 50);
+            }, 5);
       },
 
       // Resources

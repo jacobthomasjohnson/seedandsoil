@@ -20,6 +20,30 @@ body {
       font-family: "League Spartan";
 }
 
+@keyframes notification-anim {
+      0% {
+            opacity: 100%;
+      }
+      75% {
+            opacity: 100%;
+            transform: translate(-50%, calc(-50% - 20px));
+      }
+      100% {
+            opacity: 0%;
+      }
+}
+
+.notification {
+      position: fixed;
+      padding: 2rem;
+      border-radius: 10px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: notification-anim 3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 normal forwards;
+      pointer-events: none;
+}
+
 @keyframes seedDrop {
       0% {
             transform: scale(0.1);
