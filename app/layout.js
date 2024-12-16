@@ -4,6 +4,7 @@ import { Garden } from "./components/Garden";
 import { Actions } from "./components/Actions";
 import { Time } from "./components/Time";
 import { Notifications } from "./components/Notifications";
+import { Game } from "./components/Game";
 
 export const metadata = {
       title: "seed&soil",
@@ -17,9 +18,8 @@ export default function RootLayout({ children }) {
                         <div className="flex flex-col h-full">
                               <Header />
                               <Time />
-                              <Garden />
+                              <Game />
                               <Actions />
-                              <Notifications />
                         </div>
                         {children}
                   </body>

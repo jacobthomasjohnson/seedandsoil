@@ -48,7 +48,7 @@ export const Garden = () => {
 
             setTimeout(() => {
                   gardenRef.current.removeChild(div);
-            }, 5000); // Remove animation div after animation ends
+            }, 4000); // Remove animation div after animation ends
       };
 
       useEffect(() => {}, [water]);
@@ -63,7 +63,7 @@ export const Garden = () => {
 
       return (
             <div
-                  className="p-6 grow border m-6 mt-0 rounded-2xl relative transition-all duration-[25s] overflow-hidden"
+                  className="p-6 grow border m-6 mt-0 rounded-2xl relative transition-all duration-[25s] overflow-hidden z-50"
                   style={{
                         borderColor: timeOfDayColor, // Fixed inline style
                   }}

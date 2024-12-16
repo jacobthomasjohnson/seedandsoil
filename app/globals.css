@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-      --background: #20201d;
+      --background: #151514;
       --foreground: #e0dcdc;
 }
 
@@ -23,25 +23,32 @@ body {
 @keyframes notification-anim {
       0% {
             opacity: 100%;
+            transform: translate(0, 0);
       }
-      75% {
+      70% {
             opacity: 100%;
-            transform: translate(-50%, calc(-50% - 20px));
+            transform: translate(0, 0);
       }
       100% {
             opacity: 0%;
+            transform: translate(0, 0);
       }
 }
 
+.notifications {
+      @apply flex flex-col overflow-auto mr-6;
+}
+
 .notification {
-      position: fixed;
-      padding: 2rem;
+      padding-bottom: 1rem;
       border-radius: 10px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: notification-anim 3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 normal forwards;
+      bottom: 0%;
+      text-align: end;
+      transform-origin: center;
+      animation: notification-anim 10s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1
+            normal forwards;
       pointer-events: none;
+      z-index: -10;
 }
 
 @keyframes seedDrop {
@@ -53,4 +60,14 @@ body {
             transform: scale(10);
             opacity: 0;
       }
+}
+
+/* Hide scrollbar for modern browsers */
+.hide-scrollbar {
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Edge */
 }

@@ -78,6 +78,8 @@ export const useGameStore = create((set, get) => ({
             const plantId =
                   plants[randomIntBetween(0, plants.length - 1)]?.plantId;
 
+            const originalPlant = plants.find((plant) => plant.plantId === plantId);
+
             // Set initial plant properties
             const currentSize = 1;
             const dried = 0;
@@ -87,6 +89,8 @@ export const useGameStore = create((set, get) => ({
             // Generate random position
             const top = randomIntBetween(0, 100);
             const left = randomIntBetween(0, 100);
+
+            get().notify(`Planting a ${originalPlant.plantName}`);
 
             // Add the new plant to the garden
             set((state) => ({
@@ -117,6 +121,7 @@ export const useGameStore = create((set, get) => ({
             });
       },
       addPlantToGarden: (plant) => {
+            get().notify(`Adding ${plant.plantName} to garden.`)
             set((state) => {
                   return {
                         ...state,
@@ -144,8 +149,8 @@ export const useGameStore = create((set, get) => ({
                   return {
                         ...state,
                         notifications: [
-                              message,
                               ...state.notifications,
+                              message,
                         ]
                   }
             })
